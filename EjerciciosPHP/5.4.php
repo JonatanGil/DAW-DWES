@@ -43,34 +43,37 @@
   <?php
     
     $numero=1;
+    $i=1;
     echo "<caption>Tabla de multiplicar</caption>";
 
     echo "<tr>";
 
 
-    for ($i=1; $i <= 10; $i++) { 
+    do{
         
         echo "<td>Tabla del numero $i";
 
         echo "</td>";
-    }
+        $i++;
+    }while($i <= 10);
 
     echo "</tr>";
+    $i=1;
 
-
-
-
-    for ($numero=1; $numero <= 10 ; $numero++) { 
+    do{
         echo "<tr>";
 
-    for ($i=1; $i <= 10; $i++) { 
+    do { 
         
         echo "<td>".$i*$numero;
 
         echo "</td>";
-    }
+        $i++;
+    }while($i <= 10);
+    $i=1;
+    $numero++;
     echo "</tr>";
-    }
+    }while($numero <= 10 );
 
   ?>
 </table>

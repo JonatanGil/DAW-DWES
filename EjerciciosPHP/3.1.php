@@ -10,11 +10,11 @@
     $_2="1";
 
     echo is_int($_1);
-    echo("numero lo detecta como int<br>");
+    echo("<br>numero lo detecta como int<br>");
     echo is_int($_2);
-    echo("string no lo detecta como numero<br>");
+    echo("<br>string no lo detecta como numero<br>");
     echo is_int($_1+$_2);
-    echo("sumar si, detecta numeros en string y calcula, si el string tiene una letra lo ignora<br>");
+    echo("<br>sumar si, detecta numeros en string y calcula, si el string tiene una letra lo ignora<br>");
   
 
 

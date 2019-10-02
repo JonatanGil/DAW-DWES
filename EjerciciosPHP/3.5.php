@@ -19,8 +19,9 @@
     define("osFamily", PHP_OS_FAMILY );
     echo Size.'<br>';º
 
-        //etc..
-    echo PHP_DEBUG.'<br>'
+        //etc../*
+        /*
+    echo PHP_DEBUG.'<br>';
     echo PHP_MAXPATHLEN.'<br>';
     echo PHP_OS.'<br>';
     echo PHP_OS_FAMILY .'<br>';
@@ -63,9 +64,8 @@
     echo __COMPILER_HALT_OFFSET__.'<br>';
     echo TRUE.'<br>';
     echo FALSE.'<br>';
-    echo NULL.'<br>';
+    echo NULL.'<br>';*/
 
-    echo $num1;
 
 
 

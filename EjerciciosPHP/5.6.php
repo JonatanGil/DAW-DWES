@@ -45,20 +45,37 @@
     $numero=1;
     $i=1;
     echo "<caption>Tabla de multiplicar</caption>";
-    while($numero <= 10 ) { 
-        echo "<tr>";
 
-    while ($i <= 10) {
-        
-        echo "<td>".$i*$numero;
+    echo "<tr>";
 
-        echo "</td>";
-        $i++;
-    }
-    echo "</tr>";
-    $i=1;
-    $numero++;
-    }
+
+
+    for ($i=1; $i <= 10; $i++) { 
+    
+    
+    echo "<td>Tabla del numero $i";
+
+    echo "</td>";
+}
+
+echo "</tr>";
+
+for ($numero=$numero;$numero <= 10  ; $numero++) { 
+    # code...
+
+    echo "<tr>";
+
+for ($i=1; $i <=10 ; $i++) { 
+    # code...
+
+    
+    echo "<td>".$i*$numero;
+
+    echo "</td>";
+}
+echo "</tr>";
+}
+
 
   ?>
 </table>
