@@ -32,10 +32,18 @@
            
             # Posicionar la paloma
            
+
+            $casaX = $tamañoMapa-$tamañoMapa/2;
+            $casaY = $tamañoMapa-$tamañoMapa/2;
+
+
             do
             {
+                /* modifico la casa para que sea el centro, para q vayan para ya.
                 $casaX = rand (0,$tamañoMapa-1);
                 $casaY = rand (0,$tamañoMapa-1);
+                */
+
                 $palomaX = rand (0,$tamañoMapa-1);
                 $palomaY = rand (0,$tamañoMapa-1);
                 $paloma2X = rand (0,$tamañoMapa-1);

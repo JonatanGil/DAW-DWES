@@ -29,53 +29,59 @@
             <?php
 
             $tamañoMapa=10;
+            $cont=-1;
            
-            # Posicionar la paloma
+            # Posicionar de la pelota
            
+
+            $pelotaX = 2;
+            $pelotaY = 5;
+            # Posicion de suma x y de la pelota
+            $direcX = 1;
+            $direcY = 1;
+
+            $bucle=0;
+
+
+            /*
             do
             {
-                $casaX = rand (0,$tamañoMapa-1);
-                $casaY = rand (0,$tamañoMapa-1);
+                // modifico la casa para que sea el centro, para q vayan para ya.
+                $pelotaX = rand (0,$tamañoMapa-1);
+                $pelotaY = rand (0,$tamañoMapa-1);
+                
+
                 $palomaX = rand (0,$tamañoMapa-1);
                 $palomaY = rand (0,$tamañoMapa-1);
                 $paloma2X = rand (0,$tamañoMapa-1);
                 $paloma2Y = rand (0,$tamañoMapa-1);
-            } while ((abs($casaX-$palomaX)<$tamañoMapa/2)&&(abs($casaY-$palomaY)<$tamañoMapa/2)&&(abs($casaX-$paloma2X)<$tamañoMapa/2)&&(abs($casaY-$paloma2Y)<$tamañoMapa/2));
-            
+            } while ((abs($pelotaX-$palomaX)<$tamañoMapa/2)&&(abs($pelotaY-$palomaY)<$tamañoMapa/2)&&(abs($pelotaX-$paloma2X)<$tamañoMapa/2)&&(abs($pelotaY-$paloma2Y)<$tamañoMapa/2));
+            */
+
+
             # Con la línea precedente nos aseguramos de que la posición inicial de la paloma
             # y su casa disten como mínimo la mitad del mapa. La función abs() devuelve el valor
             # absoluto, esto es, la cifra sin signo.
            
             do
             {
-                #Acercar la paloma 1 a su casa
-                if ($palomaX<$casaX)
-                    $palomaX++;
+
+                $rebote=3;
+                //  0 0
                
-                elseif ($palomaX>$casaX)
-                    $palomaX--;
-               
-               
-                if ($palomaY<$casaY)
-                    $palomaY++;
-                elseif ($palomaY>$casaY)
-                    $palomaY--;
+                if($pelotaY==0 || $pelotaY+1==$tamañoMapa){
+                    $direcY=$direcY*-1;
+                    $bucle++;
+                }
+                if($pelotaX==0 || $pelotaX+1==$tamañoMapa){
+                    $direcX=$direcX*-1;
+                    $bucle++;
+                }
 
 
-                #Acercar la paloma 2 a su casa
-
-                if ($paloma2X<$casaX)
-                   $paloma2X++;
-           
-                elseif ($paloma2X>$casaX)
-                  $paloma2X--;
-           
-
-                if ($paloma2Y<$casaY)
-                    $paloma2Y++;
-                elseif ($paloma2Y>$casaY)
-                    $paloma2Y--;
-
+                $pelotaX+=$direcX;
+                $pelotaY+=$direcY;
+                
                    
                 #Mostrar el mapa actual
                 echo '<div class="map" style="width: ' . $tamañoMapa . 'em;"><pre>';
@@ -85,24 +91,13 @@
                 {
                     for ($x=0; $x<$tamañoMapa; $x++)
                     {
-                        if ($x == $casaX && $y == $casaY){
-                            echo '<span class="casa">C</span>'; //Casa
+                        if ($x == $pelotaX && $y == $pelotaY){
+                            echo '<span class="casa">*</span>'; //Casa
 
-                        }elseif($paloma2Y==$palomaY && $paloma2X==$palomaX && $x == $paloma2X && $y == $paloma2Y){
-
-                            echo '<span class="paloma">*</span>'; #Paloma
-                            }elseif ($x == $palomaX && $y == $palomaY)  {
-
-                            echo '<span class="paloma">1</span>'; #Paloma solapada, las dos en el mismo hueco
-
-                        } else {
-
-                        if($x == $paloma2X && $y == $paloma2Y){
-
-                            echo '<span class="paloma">2</span>'; #Paloma
+                       
                         }else{
                             echo '<span class="aire">.</span>'; #Aire
-                        }
+                        
                     }
                 
 
@@ -113,9 +108,8 @@
                     echo "\n"; #Salto de línea. como se está dentro de un <pre>, se reflejará en la pantalla.
                 }
                
-                echo "</pre>palomax=$palomaX palomaY=$palomaY\n";
-                echo "</pre>paloma2x=$paloma2X paloma2Y=$paloma2Y</div>\n";
-            } while ($palomaX != $casaX || $palomaY != $casaY || $paloma2X != $casaX || $paloma2Y != $casaY);
+                echo "</pre>PelotaX=$pelotaX pelotaY=$pelotaY\n</div>";
+            } while ($bucle<6);
           
             ?>   
            
