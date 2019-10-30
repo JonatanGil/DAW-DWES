@@ -11,13 +11,8 @@
    
   $num2=1;
 
-   if($num1++===++$num2){
+   echo ($num1++===++$num2)? "igual" : "no es igual";
      
-    echo "num1"+($num1++)+" es igual a "+(++$num2);
-   }else{
-    echo "num1".($num1++)." es igual a ".(++$num2);
-   }
-
 
   ?>
 
