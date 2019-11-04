@@ -6,47 +6,126 @@
 
   <?php
 
-    $cadenaC = "aeiou";
-    echo $cadenaC." <br>cambiar las (a)   por (e)<br>";
+    $cadenaC = "jonatas";
     $aux = "";
-    echo strlen($cadenaC)."tamaño de la cadena para el for(las A mayus no las cambio)<br>";
 
-    for ($i=0; $i <= strlen($cadenaC); $i++) {
+    echo $cadenaC."<br>";
 
-        switch ($cadenaC[$i]) {
+    for ($i=0; $i <= strlen($cadenaC); $i=$i+2) {
+
+      switch ($cadenaC[$i+1]) {
 
 
-            case "e":{
-                $aux = $aux."a";
+          case "a":{
+              $aux = $aux."e";
+           } break;
+          case "e":{
+              $aux = $aux."i";
+          } break;
+          case "i":{
+              $aux = $aux."o";
+          } break;
+          case "o":{
+              $aux = $aux."u";
+          } break;
+          case "u":{
+              $aux = $aux."a";
+          } break;
+
+          default:{
+              $aux = $aux.$cadenaC[$i+1];
+          }break;
+      }
+
+
+      switch ($cadenaC[$i]) {
+
+
+          case "a":{
+              $aux = $aux."e";
+           } break;
+          case "e":{
+              $aux = $aux."i";
+          } break;
+          case "i":{
+              $aux = $aux."o";
+          } break;
+          case "o":{
+              $aux = $aux."u";
+          } break;
+          case "u":{
+              $aux = $aux."a";
+          } break;
+
+          default:{
+              $aux = $aux.$cadenaC[$i];
+          }break;
+      }
+
+
+        
+  }
+
+  echo $aux."  codificado<br>";
+
+    
+    $aux2Prueba="";
+   
+
+    for ($i=0; $i <= strlen($aux); $i=$i+2) {
+        
+        
+        switch ($aux[$i+1]) {
+            case "a":{
+                $aux2Prueba = $aux2Prueba."u";
              } break;
+            case "e":{
+                $aux2Prueba = $aux2Prueba."a";
+            } break;
             case "i":{
-               $aux = $aux."e";
+                $aux2Prueba = $aux2Prueba."e";
             } break;
             case "o":{
-              $aux = $aux."i";
+                $aux2Prueba = $aux2Prueba."i";
             } break;
             case "u":{
-             $aux = $aux."o";
-            } break;
-            case "a":{
-              $aux = $aux."u";
+                $aux2Prueba = $aux2Prueba."o";
             } break;
 
-            
             default:{
-            $aux = $aux.$cadenaC[$i];
+                $aux2Prueba = $aux2Prueba.$aux[$i+1];
             }break;
         }
-        
-        if($i==strlen($cadenaC)){
-            $ultimo = substr($aux, strlen($aux)-1, strlen($aux));            
-            $aux = substr($aux, 0, -1);
-            $aux = $ultimo.$aux;
-        }
-        
+
+        switch ($aux[$i]) {
+          case "a":{
+              $aux2Prueba = $aux2Prueba."u";
+           } break;
+          case "e":{
+              $aux2Prueba = $aux2Prueba."a";
+          } break;
+          case "i":{
+              $aux2Prueba = $aux2Prueba."e";
+          } break;
+          case "o":{
+              $aux2Prueba = $aux2Prueba."i";
+          } break;
+          case "u":{
+              $aux2Prueba = $aux2Prueba."o";
+          } break;
+
+          default:{
+              $aux2Prueba = $aux2Prueba.$aux[$i];
+          }break;
+      }
+    
+    
+    
     }
 
-    echo $aux;
+    echo $aux2Prueba;
+  
+
   ?>
 
 <br><br>

@@ -1,5 +1,33 @@
 <html>
-<head></head>
+<head>
+    <style>
+    .tablita td{
+        border: 1px solid red;
+    }
+
+    .tablita {
+        border: 1px solid red;
+    }
+    tr:nth-child(1n){
+        background-color:white;
+    }
+
+    
+    td{
+        color:white;
+    }
+    td:nth-child(1n){
+        background-color: brown;
+    }
+    td:nth-child(2n){
+        background-color: black;
+    }
+    td:nth-child(3n){
+        background-color: purple;
+    }
+    </style>
+
+</head>
 <body>
 
   <p>Before the script...</p>
@@ -29,10 +57,13 @@
       } 
     }
 
+    echo "<table class='tablita'>";
     for ($b=0; $b < count($letrasDown); $b++) { 
-      echo $letrasDown[$b]."  esta: ".$numerosDown[$b]."<br>";
+        echo "<tr>";
+      echo "<td>".$letrasDown[$b]."</td>"."<td>".$numerosDown[$b]."</td>";
+      echo "</tr>";
     }
-
+    echo "</table>";
   ?>
 
 <br><br>
