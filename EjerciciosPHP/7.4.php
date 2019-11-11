@@ -24,6 +24,8 @@
         echo $posicion." ----> ".$valor."<br>";
 
         }
+
+        
         echo "<br>";
         print_r($miarray);
 

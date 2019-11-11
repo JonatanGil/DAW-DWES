@@ -6,7 +6,7 @@
 
   <?php
 
-    $cadenaC = "el luciano no sabe el codigo jaja";
+    $cadenaC = "el luciano no sabe el codigo jajael";
     $aux="";
     $posicionesCambiar = [];
     $posicion_coincidencia=0;

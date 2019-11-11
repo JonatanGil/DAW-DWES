@@ -15,7 +15,7 @@
     $primerTexto = substr($cadenaC,0,$posicionArroba);
     $segundoTexto = substr($cadenaC,$posicionArroba+1);
 
-    ECHO "nombre del correo:  ".$primerTexto."<br>";
+    echo "nombre del correo:  ".$primerTexto."<br>";
     echo "organizacion Direccion: ".$segundoTexto;
     
   ?>
