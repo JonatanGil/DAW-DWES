@@ -5,15 +5,9 @@
   <p>Before the script...</p>
 
   <?php
-
-    $num1=3;
-    $num2=3;
-
-    //false no aparece nada en pantalla
-    echo ++$num1 == $num2++;
-
-
-  ?>
+            echo "Encantado de conocerte, ";
+            echo $_GET["nombre"];
+        ?>
 
 <br><br>
   <p>...After the script.</p>

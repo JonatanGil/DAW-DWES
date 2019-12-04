@@ -5,10 +5,15 @@
   <p>Before the script...</p>
 
   <?php
+  
+echo getDate()["hours"]; 
+echo getDate()["minutes"]; 
+echo getDate()["seconds"]; 
 
-    //date https://www.php.net/manual/es/function.getdate.php
-    // todos los ejemplos y extraer todo
-
+/*
+date https://www.php.net/manual/es/function.getdate.php
+     todos los ejemplos y extraer todo*/
+/*
     $hora = date("G");
     $horaConArray = getDate()["Hours"];
 
@@ -25,6 +30,7 @@
     }
 
 
+*/
 
   ?>
 
@@ -33,4 +39,106 @@
 
 </body>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+-->
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
