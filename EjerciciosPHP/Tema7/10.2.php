@@ -8,85 +8,99 @@
 </head>
 <body>
 
-    <form action="10.1.php" method="POST">
 
        <?php
-        
-        if (isset($_COOKIE["micookie"]))
-        {
-            echo "La cookie se ha devuelto al servidor y su valor es el nombre introducido: ";
-            echo $_COOKIE["micookie"];
-            echo "</form>";
-        }  
-        else{
+
+        if(isset($_POST["eliminar"])){
+            echo "hola";
+            setcookie("micookie", "", time() -3600);
             
+        }
 
-            echo "<input type='text' name='nombre'>";
-            echo "<input type='submit'>";
+
+        if(isset($_COOKIE["micookie"])){
+  
+            $servidor = "localhost";
+            $username = "miusuario";
+            $password = "mipassword";
+            $basedatos = "bdprueba";
+    
+            $conn = mysqli_connect($servidor, $username, $password, $basedatos);
+    
+            if (!$conn) {
+                die("Conexi&ocacuten fallida: " . mysqli_connect_error());
+            }
+
+            echo "valor de la coookie ".$_COOKIE["micookie"]."<br>";
+
+            $consulta = "SELECT nombre FROM ejercicio102 WHERE id=".$_COOKIE["micookie"];
+            $nombre = mysqli_query($conn, $consulta);
+            
+    
+            echo "Saludos ".mysqli_fetch_array($nombre)[0]."    WEL CO ME";
+            mysqli_free_result($nombre);
+            mysqli_close($conn);
+
+            echo "<form action='10.2.php' method='POST'>";
+            echo "<input type='submit' value='EliminarCookie' name='eliminar'>";
             echo "</form>";
 
-            if($_POST["nombre"]!=""){
-  
-                $name="micookie";
-                $value=$_POST["nombre"]; # Podría ser una cadena de texto
-                $expires=time()+60; # 60 segundos después del momento actual
-                $path="/";
-                $domain="";
-                $secure=false;
-                $HttpOnly=true;
-               
-                # Es preciso asegurarse de llamar a setcookie() antes de enviar
-                # ninguna otra salida al navegador
-                setcookie ($name,$value,$expires,$path,$domain,$secure,$HttpeOnly);
-               
-                $servidor = "localhost";
-                $username = "miusuario";
-                $password = "mipassword";
-                $basedatos = "bdprueba";
+        }elseif(!isset($_POST["boton"])){
+     
+            echo "<form action='10.2.php' method='POST'>";
+            echo "<input type='text' name='nombre'>";
+            echo "<input type='submit' value='enviar post' name='boton'>";
+            echo "</form>";
+
+        }else{
+
+            $servidor = "localhost";
+            $username = "miusuario";
+            $password = "mipassword";
+            $basedatos = "bdprueba";
+            # Crear conexión
+            $conn = mysqli_connect($servidor, $username, $password, $basedatos);
+            
+            if (!$conn) {
+                die("Conexi&ocacuten fallida: " . mysqli_connect_error());
+            }else{echo "Conexi&oacuten con &eacutexito <br><br>";}
+
+            $consulta = mysqli_query($conn, "SELECT MAX(id) FROM ejercicio102");
+
+
+            while ($fila = mysqli_fetch_array($consulta)){ 
+                echo $fila[0];
+                $id=$fila[0];
+            }
+
+
+
+            $name="micookie";
+            $value=$id+1; # Podría ser una cadena de texto
+            $expires=time()+600; # 60 segundos después del momento actual
+            $path="/";
+            $domain="";
+            $secure=false;
+            $HttpOnly=true;
+
+            setcookie($name, $value, $expires, $path, $domain, $secure, $HttpeOnly);
                 
-                # Crear conexión
-                $conn = mysqli_connect($servidor, $username, $password, $basedatos);
-                
-                if (!$conn) {
-                    die("Conexi&ocacuten fallida: " . mysqli_connect_error());
-                }else{echo "Conexi&oacuten con &eacutexito <br><br>";}
+            echo "<br>".$_POST["nombre"]."<br>";
+            $nombreConsulta = $_POST["nombre"];
+            $consulta = mysqli_query($conn, "INSERT INTO ejercicio102(nombre) VALUES ('$nombreConsulta')");
     
-                $idSumado=0;
-                $id = mysqli_query($conn, "SELECT MAX(id) FROM ejercicio102;");
+            if(!$consulta){
+                echo "<br>id nombre insertado  error<br>";
+            }  else{
+                echo "<br>id nombre insertado corectamente<br>";
+            }
 
-                if(!$id){
-                    echo "selector fallido<br>";
-                }  else{
-                    echo "selector con exito<br>";
-                }
+            mysqli_close($conn);
 
-                //obtenemos array i isnertamos el mayor id que ahi +1
-                while ($fila = mysqli_fetch_array($dni)){ 
-                    echo $fila[0];
-                    $idSumado=$fila[0];
-                }
-                //insert into ejercicio102(id,nombre) values (1,"jon");
-                $nombreInput = $_POST['nombre'];
-                $consulta = mysqli_query($conn, "INSERT INTO ejercicio102(id,nombre) VALUES ($idSumado,'$nombreInput')");
-        
-                if(!$consulta){
-                    echo "id nombre insertado  error<br>";
-                }  else{
-                    echo "id nombre insertado corectamente<br>";
-                }
-        
-                
-                
-                
-                header("Location: 10.1.php");
-
-
-
-
-
+            header("Location: 10.2.php");
 
         }
-    }
+    
     
     ?>
 

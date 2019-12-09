@@ -14,7 +14,7 @@
         
         if (isset($_COOKIE["micookie"]))
         {
-            echo "La cookie se ha devuelto al servidor y su valor es el nombre introducido: ";
+            echo "saludos: ";
             echo $_COOKIE["micookie"];
             echo "</form>";
         }  
