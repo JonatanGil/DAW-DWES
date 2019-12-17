@@ -26,7 +26,7 @@ function enviar() {
   ipValidar(document.getElementById("IP").value);
 
   todoOK();
-
+  
   if(todoOK){
     enviarInfo();
   /*  alert("entra en fecht");
@@ -42,7 +42,7 @@ function enviar() {
 
 function enviarInfo() {
   var formulario = new FormData(document.getElementById("fomularioChachi"));
-
+  
   var xhr = new XMLHttpRequest();
 
   xhr.onreadystatechange = function() {
@@ -53,8 +53,11 @@ function enviarInfo() {
 
 
 
-  xhr.open("POST","http://localhost/EjerciciosPHP/FormularioAJAX/PHP/registro.php");
+  xhr.open("POST","PHP/registro.php");
   xhr.send(formulario);
+
+  alert("<br>entra en registro");
+
 }
 
 function telefonoCorrecto(telefono) {

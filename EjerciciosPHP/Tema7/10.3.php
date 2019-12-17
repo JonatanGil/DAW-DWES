@@ -12,9 +12,8 @@
        <?php
 
         if(isset($_POST["eliminar"])){
-            echo "entra en eleiminar cokkie<br>";
-            setcookie("micookie", "", time()-85123);
-            
+            echo "elimino cokkie time-3600<br>";
+            setcookie("micookie", "", time() -500000);
         }
 
 
@@ -41,13 +40,13 @@
             mysqli_free_result($nombre);
             mysqli_close($conn);
 
-            echo "<form action='10.2.php' method='POST'>";
+            echo "<form action='10.3.php' method='POST'>";
             echo "<input type='submit' value='EliminarCookie' name='eliminar'>";
             echo "</form>";
 
         }elseif(!isset($_POST["boton"])){
      
-            echo "<form action='10.2.php' method='POST'>";
+            echo "<form action='10.3.php' method='POST'>";
             echo "<input type='text' name='nombre'>";
             echo "<input type='submit' value='enviar post' name='boton'>";
             echo "</form>";
@@ -97,7 +96,7 @@
 
             mysqli_close($conn);
 
-            header("Location: 10.2.php");
+            header("Location: 10.3.php");
 
         }
     
