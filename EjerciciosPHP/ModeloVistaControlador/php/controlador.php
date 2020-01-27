@@ -2,7 +2,10 @@
 // Requerir el modelo
 require_once('modelo.php');
 // Extraer la lista de mensajes
-$mensajes = ListarMensajes();
+$productos = ListarProducto();
 // Requerir la vista
+
+//var_dump($productos);
+
 require('vista.php');
 ?>
