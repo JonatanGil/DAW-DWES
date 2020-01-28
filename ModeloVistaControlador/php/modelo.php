@@ -1,19 +1,25 @@
 <?php
-function ListarMensajes()
-{
-// Conexión
-$link = mysql_connect('localhost', 'usuario', 'password');
-mysql_select_db('blog_db', $link);
-// Consulta
-$result = mysql_query('SELECT fecha, titulo FROM mensaje', $link);
-// Rellenar el array
-$mensajes = array();
-while ($fila = mysql_fetch_array($result, MYSQL_ASSOC))
-{
-$mensajes[] = $fila;
+
+
+
+
+
+function ListarProductos(){
+    // Conexión
+    $link = mysqli_connect('localhost', 'usuario', 'password', 'Carrito');
+    // Consulta
+    $result = mysqli_query($link, 'SELECT * FROM producto');
+    // Rellenar el array
+    $productos = array();
+    while ($fila = mysqli_fetch_array($result)){
+        $productos[] = $fila;
+    }
+    // Cierre de la conexión
+    mysqli_close($link);
+    return $productos;
 }
-// Cierre de la conexión
-mysql_close($link);
-return $mensajes;
-}
+
+
+
+
 ?>

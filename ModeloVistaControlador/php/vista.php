@@ -1,17 +1,26 @@
 <html>
 <head>
-<title>List of Posts</title>
+<title>List of productos</title>
 </head>
 <body>
-<h1>List of Posts</h1>
+<h1>List of productos</h1>
 <table>
 <tr><th>Date</th><th>Title</th></tr>
-<?php foreach ($posts as $post): ?>
+<?php foreach ($productos as $post): ?>
+
+<form action="controlador.php" method="POST">
 <tr>
-<td><?php echo $post['date'] ?></td>
-<td><?php echo $post['title'] ?></td>
+<td><input type="text" value='<?php echo $post['IdProducto'] ?>' hidden><?php echo $post['IdProducto'] ?></td>
+<td><?php echo $post['Precio'] ?></td>
+<td><?php echo $post['Nombre'] ?></td>
+<td><input type="submit" value="comprarProducto"></td>
 </tr>
+</form>
+
 <?php endforeach; ?>
 </table>
+<form action="controlador.php">
+<input type="submit" value="Comprar">
+</form>
 </body>
 </html>
