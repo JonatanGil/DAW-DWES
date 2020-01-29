@@ -1,0 +1,53 @@
+
+<HTML>
+    <HEAD>
+    <TITLE>Login</TITLE>
+    
+    <style>
+    img{
+    margin-left: 40%;
+    }
+    
+    div{
+    width: 40%;
+    border: 1px solid black;
+    margin-left: 30%;
+    }
+    
+    form{
+    text-align: center;
+    }
+    
+    p{
+    text-align: center;
+    }
+    
+    input[type="submit"]{
+    background-color: orange;
+    
+    }
+    </style>
+    
+    </HEAD>
+    <BODY>
+    <img src="amazon.jpg" width="200"> 
+    <div> 
+    <H1 ALIGN="CENTER">Iniciar Sesion</H1>
+    <FORM ACTION="http://localhost:8080/Proyecto1/servlet" method="GET">
+    <p><b>Introduzca su usuario</b></p><input type="text" NAME="usuario"><BR>
+    <p><b>Introduzca su contraseña</b> </p> <input type="password" NAME="password"><BR>
+    <input name="form" value="iniciarSesion" hidden>
+    <CENTER>
+    <INPUT TYPE="SUBMIT" value="Iniciar Sesion">
+    </CENTER>
+    </FORM>
+    <hr> <p>¿No tienes cuenta de Amazon?</p>
+    
+    <p>
+    <button onclick="location.href='MiServletHTML10.22usuario.html'">Crear Usuario</button>
+
+    </p>
+    </div> 
+    
+    </BODY>
+    </HTML>

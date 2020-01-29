@@ -1,0 +1,48 @@
+
+<HTML>
+    <HEAD>
+    <TITLE>Login</TITLE>
+    
+    <style>
+    
+    div{
+    width: 40%;
+    border: 1px solid black;
+    margin-left: 30%;
+    }
+    
+    form{
+    text-align: center;
+    }
+    
+    p{
+    text-align: center;
+    }
+    
+    input[type="submit"]{
+    background-color: orange;
+    
+    }
+    </style>
+    
+    </HEAD>
+    <BODY>
+    <div> 
+    <H1 ALIGN="CENTER">Iniciar Sesion</H1>
+    <FORM ACTION="http://localhost:8080/Proyecto1/servlet" method="GET">
+    <p><b>introduzca DNI</b></p><input type="text" NAME="dni"><BR>
+    <input name="form" value="iniciarSesion" hidden>
+    <CENTER>
+    <INPUT TYPE="SUBMIT" value="Iniciar Sesion">
+    </CENTER>
+    </FORM>
+    <hr> <p>¿No tienes cuenta?</p>
+    
+    <p>
+    <button onclick="location.href='MiServlet10.232.html'">Crear Usuario</button>
+
+    </p>
+    </div> 
+    
+    </BODY>
+    </HTML>
